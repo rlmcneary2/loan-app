@@ -1,6 +1,9 @@
 ---
-import PageBase from '../layouts/page-base.astro';
-import Header from '../layouts/header.astro';
+import PageBase from "../layouts/page-base.astro";
+import Header from "../layouts/header.astro";
+import { LoanAppsTable } from "../components/loan-apps-table";
 ---
 
-<PageBase title="Loan Apps"><Header id="LOAN_APPS" /></PageBase>
+<PageBase title="Loan Apps">
+  <Header id="LOAN_APPS" /><LoanAppsTable client:load />
+</PageBase>
