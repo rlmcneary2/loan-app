@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 export function Table<T extends { [key in keyof T]: T[key] }>({
   items,
   rowKeyProp
@@ -28,7 +26,7 @@ export function Table<T extends { [key in keyof T]: T[key] }>({
   });
 
   return (
-    <table className="table">
+    <table className="table table-striped">
       <thead>
         <tr>{columns}</tr>
       </thead>

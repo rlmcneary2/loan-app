@@ -12,38 +12,48 @@ const { id } = Astro.props;
     <ul class="nav align-end">
       <li class="nav-item">
         <a
-          class:list={['nav-link', { active: id === 'LOAN_APPS' }]}
+          class:list={["nav-link", { active: id === "LOAN_APPS" }]}
           href="/loan-apps">Loan Apps</a
         >
       </li>
       <li class="nav-item">
         <a
-          class:list={['nav-link', { active: id === 'NEW_LOAN_APP' }]}
+          class:list={["nav-link", { active: id === "NEW_LOAN_APP" }]}
           href="/new">New</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class:list={["nav-link", { active: id === "PROFILE" }]}
+          href="/profile"><i class="bi bi-person-circle"></i></a
         >
       </li>
     </ul>
   </nav>
 </header>
 
-<style>
+<style lang="scss">
+  $borderColor: #00000022;
+
   .align-end {
     justify-content: flex-end;
   }
 
   .header {
     align-items: center;
+    border-bottom: 1px solid $borderColor;
+    box-shadow: 0 1px 3px $borderColor;
     display: flex;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     width: 100%;
-  }
 
-  .header > .title {
-    vertical-align: middle;
-  }
+    > .title {
+      vertical-align: middle;
+    }
 
-  .header .menu {
-    flex: 1;
+    .menu {
+      flex: 1;
+    }
   }
 
   .nav-link.active {

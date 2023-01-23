@@ -1,9 +1,11 @@
 ---
-import PageBase from "../layouts/page-base.astro";
-import Header from "../layouts/header.astro";
+import { get as getLoanApps } from "@loan-app/service";
+import PageContent from "../layouts/page-content.astro";
 import { LoanAppsTable } from "../components/loan-apps-table";
+
+const result = await getLoanApps();
 ---
 
-<PageBase title="Loan Apps">
-  <Header id="LOAN_APPS" /><LoanAppsTable client:load />
-</PageBase>
+<PageContent id="LOAN_APPS" title="LOAN_APPS">
+  <LoanAppsTable client:idle result={result} />
+</PageContent>
