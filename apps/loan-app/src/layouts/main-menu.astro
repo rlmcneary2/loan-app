@@ -1,0 +1,30 @@
+---
+export interface Props {
+  pageId: string;
+}
+
+const { pageId } = Astro.props;
+---
+
+<nav class="menu">
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a
+        class:list={["nav-link", { active: pageId === "LOAN_APPS" }]}
+        href="/loan-apps">Loan Apps</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class:list={["nav-link", { active: pageId === "NEW_LOAN_APP" }]}
+        href="/new-loan-app">New</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<style lang="scss">
+  .nav-link.active {
+    font-weight: bold;
+  }
+</style>

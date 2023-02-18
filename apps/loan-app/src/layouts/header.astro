@@ -1,62 +1,23 @@
 ---
 export interface Props {
-  id: string;
+  pageId: string;
 }
 
-const { id } = Astro.props;
+const { pageId } = Astro.props;
 ---
 
-<header class="header">
-  <span class="title">{id}</span>
-  <nav class="menu">
-    <ul class="nav align-end">
-      <li class="nav-item">
-        <a
-          class:list={["nav-link", { active: id === "LOAN_APPS" }]}
-          href="/loan-apps">Loan Apps</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class:list={["nav-link", { active: id === "NEW_LOAN_APP" }]}
-          href="/new">New</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class:list={["nav-link", { active: id === "PROFILE" }]}
-          href="/profile"><i class="bi bi-person-circle"></i></a
-        >
-      </li>
-    </ul>
-  </nav>
+<header class="align-items-center d-flex header p-3 w-100">
+  <h1 class="align-self-center me-auto title">{pageId}</h1>
+  <a class:list={["nav-link", { active: pageId === "PROFILE" }]} href="/profile"
+    ><i class="bi bi-person-circle"></i></a
+  >
 </header>
 
 <style lang="scss">
   $borderColor: #00000022;
 
-  .align-end {
-    justify-content: flex-end;
-  }
-
   .header {
-    align-items: center;
     border-bottom: 1px solid $borderColor;
     box-shadow: 0 1px 3px $borderColor;
-    display: flex;
-    padding: 1rem 1.5rem;
-    width: 100%;
-
-    > .title {
-      vertical-align: middle;
-    }
-
-    .menu {
-      flex: 1;
-    }
-  }
-
-  .nav-link.active {
-    font-weight: bold;
   }
 </style>

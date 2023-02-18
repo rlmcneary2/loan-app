@@ -1,10 +1,11 @@
 ---
 import { CurrencyInput } from "../components/form/currency-input";
+import { PostalCodeInput } from "../components/form/postal-code-input";
 import PageContent from "../layouts/page-content.astro";
 ---
 
-<PageContent id="NEW_LOAN_APP" title="NEW_LOAN_APP">
-  <div style="width: 100%;">
+<PageContent pageId="NEW_LOAN_APP" title="NEW_LOAN_APP">
+  <div class="w-100">
     <form
       action="https://webhook.site/aa2b99ff-ac5e-4015-a6d1-16bfb25efe8b"
       class=""
@@ -54,11 +55,11 @@ import PageContent from "../layouts/page-content.astro";
         </div>
         <div class="col-md-2">
           <label class="form-label" for="poastal_code">Zip</label>
-          <input
-            class="form-control"
+          <PostalCodeInput
+            client:idle
+            className="form-control"
             id="postal_code"
             name="postal_code"
-            type="text"
           />
         </div>
       </fieldset>

@@ -6,6 +6,6 @@ import { LoanAppsTable } from "../components/loan-apps-table";
 const result = await getLoanApps();
 ---
 
-<PageContent id="LOAN_APPS" title="LOAN_APPS">
+<PageContent pageId="LOAN_APPS" title="LOAN_APPS">
   <LoanAppsTable client:idle result={result} />
 </PageContent>

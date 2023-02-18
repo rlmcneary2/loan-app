@@ -3,16 +3,26 @@ import type { Props as PageBaseProps } from "./page-base.astro";
 import PageBase from "./page-base.astro";
 import type { Props as HeaderProps } from "./header.astro";
 import Header from "./header.astro";
+import MainMenu from "./main-menu.astro";
 
 export interface Props extends PageBaseProps, HeaderProps {}
 
-const { id, title } = Astro.props;
+const { pageId, title } = Astro.props;
 ---
 
 <PageBase title={title}>
   <div class="d-flex flex-column overflow-hidden display">
-    <Header id={id} />
-    <div class="d-flex pb-3 pe-4 ps-4 pt-3 overflow-auto"><slot /></div>
+    <Header pageId={pageId} />
+    <div class="d-flex w-100 overflow-hidden">
+      <div class="col-2">
+        <MainMenu pageId={pageId} />
+      </div>
+      <div class="d-flex overflow-scroll">
+        <div class="pb-3 pe-4 ps-4 pt-3">
+          <slot />
+        </div>
+      </div>
+    </div>
   </div>
 </PageBase>
 

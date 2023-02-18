@@ -1,22 +1,22 @@
 import type React from "react";
 import { useEffect, useState } from "react";
-import type { CurrencyNumberInputProps } from "@bitovi/react-numerics";
-import { CurrencyNumberInput } from "@bitovi/react-numerics";
+import type { PostalCodeNumberInputProps } from "@bitovi/react-numerics";
+import { PostalCodeNumberInput } from "@bitovi/react-numerics";
 
-export function CurrencyInput({ value, ...props }: CurrencyInputProps) {
+export function PostalCodeInput({ value, ...props }: PostalCodeInputProps) {
   const [numericValue, setNumericValue] = useState<string>("");
 
   useEffect(() => {
     setNumericValue(`${value ?? ""}`);
   }, [value]);
 
-  const handleNumericChange: CurrencyNumberInputProps["onNumericChange"] =
+  const handleNumericChange: PostalCodeNumberInputProps["onNumericChange"] =
     e => {
       setNumericValue(e);
     };
 
   return (
-    <CurrencyNumberInput
+    <PostalCodeNumberInput
       {...props}
       numericValue={numericValue}
       onNumericChange={handleNumericChange}
@@ -24,9 +24,9 @@ export function CurrencyInput({ value, ...props }: CurrencyInputProps) {
   );
 }
 
-export interface CurrencyInputProps
+export interface PostalCodeInputProps
   extends Omit<
-    CurrencyNumberInputProps,
+    PostalCodeNumberInputProps,
     "numericValue" | "onNumericChange" | "type"
   > {
   value?: React.DetailedHTMLProps<
